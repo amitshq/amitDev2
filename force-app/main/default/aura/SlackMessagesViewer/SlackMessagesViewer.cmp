@@ -1,0 +1,18 @@
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="SlackWebController">
+	 <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="options" type="List" />
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    <aura:attribute name="type" type="String" default="UserProfile" description="The type of feed" access="GLOBAL"/>
+    <aura:attribute name="types" type="String[]"
+                    default="Home,Company,DirectMessages,Feeds,Files,,PendingReview,Record,Streams,To,Topics,UserProfile"
+                    description="A list of feed types"/>
+    <h1>My Feeds</h1>
+    <lightning:select aura:id="typeSelect" onchange="{!c.onChangeType}" label="Type" name="typeSelect">
+        <aura:iteration items="{!v.options}" var="item">
+            <option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"/>
+        </aura:iteration>
+    </lightning:select>
+    <div aura:id="feedContainer" class="feed-container">
+        <forceChatter:feed />
+    </div>
+</aura:component>

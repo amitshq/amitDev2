@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-text-heading_large slds-align_absolute-center">Forecast Table</div>
+    <lightning-datatable
+        key-field="id"
+        data={displayProducts}
+        columns={columns}
+        hide-checkbox-column="true" 
+    >
+    </lightning-datatable>
+
+    <template if:true={loader}>
+        <div class="slds-align_absolute-center">
+           <div class="demo-only" style="height:6rem;position:relative;background-color: #ffffff;">
+              <div class="slds-spinner_container slds-is-fixed">
+                 <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </template>
+    
+</template>

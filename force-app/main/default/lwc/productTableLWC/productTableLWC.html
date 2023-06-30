@@ -1,0 +1,23 @@
+<template>
+    <div class="productTableOverride">
+        <div class="slds-text-heading_large slds-align_absolute-center">Product Table</div>
+        <lightning-datatable
+            key-field="id"
+            data={displayProducts}
+            columns={columns}
+        >
+        </lightning-datatable>
+
+        <label>Select the fields you want to display in the Product Table</label>
+        <select class="slds-select" name="optionSelect" multiple>
+            <template for:each={wiredContactFields.data} for:item="field">
+                <option key={field} value={field}>{field}</option>
+            </template>
+        </select>
+
+        <lightning-button
+            label="View Products"
+            onclick={handleSelectedFields}
+        ></lightning-button>
+    </div>
+</template>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+    </targets>
+    <masterLabel>sliderCtrlD1</masterLabel>
+    <description>Dashboard Control POC</description>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage">
+            <event name="itemspointed" label="Item Pointed">
+                <schema>
+                    {
+                        "type": "object",
+                        "properties": {
+                            "recId": {
+                                "type": "string",
+                                "title": "Slider value",
+                                "description": "Volume Slider"
+                            }
+                       }
+                    }
+                </schema>
+            </event>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

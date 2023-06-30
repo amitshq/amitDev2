@@ -1,0 +1,12 @@
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,lightning:isUrlAddressable"
+    access="global">
+    <aura:html tag="style">
+        .slds-button_icon-bare, .slds-button--icon-bare{
+            display:none;
+        }
+        .slds-checkbox__label{
+            display:none;
+        }
+</aura:html>
+</aura:component>
