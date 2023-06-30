@@ -64,6 +64,7 @@ export default class ProductTableLWC extends LightningElement {
         }
     }
     //Dev Test
+      //Dev Test  //Dev Test  //Dev Test  //Dev Test
     handleSelectedFields(event) {
         //clean the array
         this.selected.splice(0, this.selected.length);
