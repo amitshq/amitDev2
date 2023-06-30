@@ -86,6 +86,28 @@ export default class ProductTableLWC extends LightningElement {
                 console.log(error);
             });
     }
+    
+    handleSelectedFieldsNew(event) {
+        //clean the array
+        this.selected.splice(0, this.selected.length);
+        this.fetchedProducts = [];
+        this.columns = [];
+
+        for (var option of this.template.querySelector('select').options) {
+            if (option.selected) {
+                this.selected.push(option.value);
+            }
+        }
+
+        getContacts({ selectedFields: this.selected })
+            .then(result => {
+                this.fetchedProducts = result;
+                this.handleFetchFieldTypes();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
 
     handleFetchFieldTypes() {
         getFieldTypes({ selectedFields: this.selected })
