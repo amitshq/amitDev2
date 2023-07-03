@@ -88,7 +88,7 @@ export default class ProductTableLWC extends LightningElement {
     }
     
     handleSelectedFieldsNew(event) {
-        //clean the array
+        //clean the array   TEST
         this.selected.splice(0, this.selected.length);
         this.fetchedProducts = [];
         this.columns = [];
