@@ -22,6 +22,25 @@ export default class ProductTableLWC extends LightningElement {
         {label:'SalesPrice', fieldName:'UnitPrice'},
         {label:'TotalPrice', fieldName:'TotalPrice'}
     ];
+
+
+    @track columns1 = [
+        {label: 'Product', fieldName: 'ProductURL', type: 'url',
+            typeAttributes: {
+                label: {
+                    fieldName: 'Name'
+                }
+            }
+        },
+        {label:'ProductCode', fieldName:'ProductCode'},
+        {label:'Description', fieldName:'Description'},
+        {label:'Quantity', fieldName:'Quantity'},
+        {label:'ListPrice', fieldName:'ListPrice'},
+        {label:'SalesPrice', fieldName:'UnitPrice'},
+        {label:'TotalPrice', fieldName:'TotalPrice'}
+    ];
+
+
     @track selected = ['Id', 'Name','ProductCode','Description'];
     @track fetchedProducts=[];
     @track preparedProducts=[];
