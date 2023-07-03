@@ -22,6 +22,41 @@ export default class ProductTableLWC extends LightningElement {
         {label:'SalesPrice', fieldName:'UnitPrice'},
         {label:'TotalPrice', fieldName:'TotalPrice'}
     ];
+
+
+    @track columns1 = [
+        {label: 'Product', fieldName: 'ProductURL', type: 'url',
+            typeAttributes: {
+                label: {
+                    fieldName: 'Name'
+                }
+            }
+        },
+        {label:'ProductCode', fieldName:'ProductCode'},
+        {label:'Description', fieldName:'Description'},
+        {label:'Quantity', fieldName:'Quantity'},
+        {label:'ListPrice', fieldName:'ListPrice'},
+        {label:'SalesPrice', fieldName:'UnitPrice'},
+        {label:'TotalPrice', fieldName:'TotalPrice'}
+    ];
+
+    @track columns22 = [
+        {label: 'Product', fieldName: 'ProductURL', type: 'url',
+            typeAttributes: {
+                label: {
+                    fieldName: 'Name'
+                }
+            }
+        },
+        {label:'ProductCode', fieldName:'ProductCode'},
+        {label:'Description', fieldName:'Description'},
+        {label:'Quantity', fieldName:'Quantity'},
+        {label:'ListPrice', fieldName:'ListPrice'},
+        {label:'SalesPrice', fieldName:'UnitPrice'},
+        {label:'TotalPrice', fieldName:'TotalPrice'}
+    ];
+
+
     @track selected = ['Id', 'Name','ProductCode','Description'];
     @track fetchedProducts=[];
     @track preparedProducts=[];
@@ -87,8 +122,32 @@ export default class ProductTableLWC extends LightningElement {
             });
     }
     
-    handleSelectedFieldsNew(event) {
+      //Dev Test  //Dev Test  //Dev Test  //Dev Test
+      handleSelectedFieldsDSVSDV(event) {
         //clean the array
+        this.selected.splice(0, this.selected.length);
+        this.fetchedProducts = [];
+        this.columns = [];
+
+        for (var option of this.template.querySelector('select').options) {
+            if (option.selected) {
+                this.selected.push(option.value);
+            }
+        }
+
+        getContacts({ selectedFields: this.selected })
+            .then(result => {
+                this.fetchedProducts = result;
+                this.handleFetchFieldTypes();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+    
+
+    handleSelectedFieldsNew(event) {
+        //clean the array   TEST
         this.selected.splice(0, this.selected.length);
         this.fetchedProducts = [];
         this.columns = [];
